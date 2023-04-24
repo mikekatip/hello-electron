@@ -8,7 +8,6 @@ A sample electron application.
 git clone https://github.com/mikekatip/hello-electron.git
 cd hello-electron
 npm install
-npm audit fix --force
 ```
 
 ## RUN
