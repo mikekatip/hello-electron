@@ -6,6 +6,7 @@ A sample electron application.
 
 ```
 npm install
+npm audit fix --force
 ```
 
 ## RUN
