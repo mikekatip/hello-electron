@@ -5,6 +5,8 @@ A sample electron application.
 ## INSTALL
 
 ```
+git clone https://github.com/mikekatip/hello-electron.git
+cd hello-electron
 npm install
 npm audit fix --force
 ```
