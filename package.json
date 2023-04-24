@@ -6,8 +6,8 @@
   "main": "src/js/electron.js",
   "private": true,
   "scripts": {
-    "start": "npm version 0.0.0 && npm version $(date +%y.%m.%d) && electron .",
-    "build-linux": "npm version 0.0.0 && npm version $(date +%y.%m.%d) && ./node_modules/.bin/electron-builder --linux AppImage"
+    "start": "npm version --no-git-tag-version 0.0.0 && npm version --no-git-tag-version $(date +%y.%m.%d) && electron .",
+    "build-linux": "npm version --no-git-tag-version 0.0.0 && npm version --no-git-tag-version $(date +%y.%m.%d) && ./node_modules/.bin/electron-builder --linux AppImage"
   },
   "build": {
     "directories": {
@@ -25,7 +25,7 @@
   "license": "GPLV3",
   "devDependencies": {
     "electron": "latest",
-    "electron-builder": "latest"
+    "electron-builder": "^24.2.1"
   },
   "dependencies": {
     "jquery": "latest"
