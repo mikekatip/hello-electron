@@ -4,17 +4,17 @@ A sample electron application.
 
 ## INSTALL
 
-'''
+```
 npm install
-'''
+```
 
 ## BUILD
 
 ## Linux (AppImage)
 
-'''
+```
 npm run build-linux
-'''
+```
 
 ## LICENSE
 
