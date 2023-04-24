@@ -10,7 +10,7 @@ npm install
 
 ## BUILD
 
-## Linux (AppImage)
+### Linux (AppImage)
 
 ```
 npm run build-linux
