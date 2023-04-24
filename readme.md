@@ -8,6 +8,12 @@ A sample electron application.
 npm install
 ```
 
+## RUN
+
+```
+npm start
+```
+
 ## BUILD
 
 ### Linux (AppImage)
