@@ -1,8 +1,17 @@
 # HELLO-ELECTRON
 
-A sample electron application.
+A sample electron application .
 
 ## INSTALL
+
+### NODE.JS
+
+```
+curl "https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh"  | bash
+source ~/.profile
+nvm install node
+```
+### HELLO-ELECTRON
 
 ```
 git clone https://github.com/mikekatip/hello-electron.git
