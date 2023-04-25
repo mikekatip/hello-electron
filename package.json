@@ -34,11 +34,6 @@
   "dependencies": {
     "@electron/rebuild": "latest",
     "jquery": "latest",
-    "node-pty": "latest",
-    "npm-check-updates": "latest",
-    "xterm": "latest",
-    "xterm-addon-fit": "latest",
-    "xterm-addon-ligatures": "latest",
-    "xterm-addon-web-links": "latest"
+    "npm-check-updates": "latest"
   }
 }
