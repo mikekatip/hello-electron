@@ -1,31 +1,52 @@
-var devtoolsOn = true;
+/**** START - INIT *****/
 
 const { app, BrowserWindow, ipcMain } = require('electron');
-var path = require('path')
-
+const path = require('path')
 const fs = require('fs');
+
+/**** END - INIT *****/
+
+
+/**** START - VARS *****/
+
+var devtoolsOn = true;
+
+/**** END - INIT *****/
+
+
+/**** START - FUNCTIONS *****/
 
 function readConf() {
     const data = fs.readFileSync(__dirname + '/../../package.json', 'utf8');
     return data;
 }
 
-ipcMain.on('synchronous-message', (event, arg) => {
-    event.returnValue = readConf();
-  })
-
 function createWindow() {
-    // Create a new window
+    // INIT
     const window = new BrowserWindow({
+        transparent: true,
         width: 800,
         height: 600,
         show: false,
         autoHideMenuBar: true,
-        icon: path.join(__dirname + '/../../src/images/icon/512x512.png'),
+        icon: path.join(__dirname + '/../../src/images/icon/icon.png'),
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false,
+            enableRemoteModule: true,
         }
+    });
+
+    window.loadFile("src/index.html");
+
+    // EVENT LISTENERS
+
+    ipcMain.on('update-title', (event, title) => {
+        window.setTitle(title);
+    }); 
+    
+    ipcMain.on('synchronous-message', (event, arg) => {
+        event.returnValue = readConf();
     });
 
     window.webContents.on("did-finish-load", () => {
@@ -48,7 +69,8 @@ function createWindow() {
         }
 
         window.show();
-        window.focus();       
+        window.focus();
+        
     });
 
     window.on("close", () => {
@@ -56,21 +78,22 @@ function createWindow() {
         app.quit();
      });
 
-    window.loadFile("src/index.html");
+    app.on("window-all-closed", function () {
+        if (process.platform !== "darwin") {
+            app.quit();
+        }
+    });
 
 }
 
+
+/**** END - FUNCTIONS *****/
+
+
+/**** START - APP READY *****/
+
 app.whenReady().then(() => {
     createWindow();
-    app.on("activate", () => {
-        if (BrowserWindow.getAllWindows().length === 0) {
-            createWindow();
-        }
-    });
 });
 
-app.on("window-all-closed", function () {
-    if (process.platform !== "darwin") {
-        app.quit();
-    }
-});
+/**** END - APP READY *****/
